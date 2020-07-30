@@ -1,5 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, HttpResponse
+from django.http import HttpResponseRedirect
 from .models import Page
+from .forms import ContactForm
 
 
 def index(request, page_name):
@@ -15,3 +17,18 @@ def index(request, page_name):
     return render(request, 'pager/page.html', context)
 
 
+def contact(request):
+    submitted = False
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            # assert False
+            return HttpResponseRedirect('/contact?submitted=True')
+    else:
+        form = ContactForm
+        if 'submitted' in request.GET:
+            submitted = True
+    context = {'form': form, 'page_list': Page.objects.all(),
+               'submitted': submitted}
+    return render(request, 'pager/contact.html', context)
