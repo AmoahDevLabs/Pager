@@ -105,14 +105,11 @@ height: 30px;
 }
 
 .success {
-<<<<<<< HEAD
 background-color: rgba(0, 128, 0, 0.15);
 padding: 10px;
 text-align: center;
 color: green;
 border: 1px solid green;
 border-radius: 3px;
-=======
 
->>>>>>> b1abfc4bea14afd7c1e982562f2192b2c099a91a
 }

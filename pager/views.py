@@ -1,11 +1,10 @@
-<<<<<<< HEAD
+
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.core.mail import send_mail, get_connection
-=======
 from django.shortcuts import render, get_object_or_404, HttpResponse
 from django.http import HttpResponseRedirect
->>>>>>> b1abfc4bea14afd7c1e982562f2192b2c099a91a
+
 from .models import Page
 from .forms import ContactForm
 
@@ -30,7 +29,7 @@ def contact(request):
         if form.is_valid():
             cd = form.cleaned_data
             # assert False
-<<<<<<< HEAD
+
             con = get_connection('django.core.mail.backends.console.EmailBackend')
             send_mail(
                 cd['subject'],
@@ -39,8 +38,7 @@ def contact(request):
                 ['nonreply.strict@pager.com'],
                 connection=con
             )
-=======
->>>>>>> b1abfc4bea14afd7c1e982562f2192b2c099a91a
+
             return HttpResponseRedirect('/contact?submitted=True')
     else:
         form = ContactForm
