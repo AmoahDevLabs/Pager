@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pager.apps.BlogConfig',
+    'pager.apps.PagerConfig',
+    'quotes.apps.QuotesConfig',
 ]
 
 MIDDLEWARE = [
