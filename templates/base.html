@@ -13,7 +13,15 @@
 <body>
     <div id="wrapper">
       <header id="header">
-        <div id="logo"><img src="{% static 'img/logo.jpg' %}" alt=""/></div>
+        <div id="logo"><img src="{% static 'img/logo.jpg' %}" alt=""/>
+            <span style="float: right;" class="no-underline">
+            {% if user.is_authenticated %}
+                Hello, {{ user.username }}| <a href="{% url 'logout' %}?next=/">Log out</a>
+            {% else %}
+                Not logged in ? <a href="{% url 'login' %}?next=/">Log in</a>
+            {% endif %}
+        </span>
+        </div>
         <div id="topbanner"><img src="{% static 'img/top_banner.png' %}" width="800" height="200" alt=""/></div>
       </header>
       <aside id="leftsidebar">
@@ -24,6 +32,7 @@
                 {% endblock %}
                 <li><a href="/contact">Contact Us</a></li>
                 <li><a href="/quote/">Get a Quote</a></li>
+                <li><a href="/quote/show">Show Quotes</a></li>
             </ul>
         </nav>
       </aside>

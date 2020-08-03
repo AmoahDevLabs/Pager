@@ -13,11 +13,19 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('pager/', include('pager.urls'))
 """
+from django.views.generic.base import TemplateView
+from quotes.views import RegisterUser
 from django.contrib import admin
 from django.urls import path, include
 
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', include('pager.urls')),
+    path('register/', RegisterUser.as_view(), name='register'),
+    path('register/success/', TemplateView.as_view(
+        template_name='registration/success.html'), name='register-success'),
     path('quote/', include('quotes.urls')),
+    path('', include('django.contrib.auth.urls')),
+    path('admin/', admin.site.urls),
+
 ]

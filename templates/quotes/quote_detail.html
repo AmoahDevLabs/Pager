@@ -1,0 +1,22 @@
+{% extends "quotes/quote.html" %}
+{% block title %}All Quotes{% endblock title %}
+
+{% block content %}
+    <h1>Quote Detail</h1>
+    <table class="quote">
+        <tr><td>ID:</td><td>{{ quote.id }}</td></tr>
+        <tr><td>Name:</td><td>{{ quote.name }}</td></tr>
+        <tr><td>Company:</td><td>{{ quote.company }}</td></tr>
+        <tr><td>Address:</td><td>{{ quote.address }}</td></tr>
+        <tr><td>Phone number:</td><td>{{ quote.phone_name }}</td></tr>
+        <tr><td>Email:</td><td>{{ quote.email }}</td></tr>
+        <tr><td>Web Address:</td><td>{{ quote.website }}</td></tr>
+        <tr><td>Job Description:</td><td>{{ quote.description}}</td></tr>
+        <tr><td>Site Status:</td><td>{{ quote.get_site_status_display }}</td></tr>
+        <tr><td>Priority:</td><td>{{ quote.get_priority_display }}</td></tr>
+        <tr><td>Submit Date:</td><td>{{ quote.submitted|date:"m-d-y" }}</td></tr>
+        <tr><td>Quote Date:</td><td>{{ quote.quote_date|date:"m-d-y"|default:"pending" }}</td></tr>
+        <tr><td>Quote Price:</td><td>{{ quote.quote_price|default:"--" }}</td></tr>
+    </table>
+    <p><a href="../show">Back to quote list</a></p>
+{% endblock content %}

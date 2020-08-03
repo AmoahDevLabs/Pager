@@ -1,6 +1,3 @@
-
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponseRedirect
 from django.core.mail import send_mail, get_connection
 from django.shortcuts import render, get_object_or_404, HttpResponse
 from django.http import HttpResponseRedirect
